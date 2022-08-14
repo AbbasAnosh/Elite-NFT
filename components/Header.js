@@ -8,7 +8,7 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           <div>
-            <h2 className="text-2xl font-primary">Elite NFT</h2>
+            <h2 className="text-2xl font-primary font-bold">Elite NFT</h2>
           </div>
 
           <Nav />
