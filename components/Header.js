@@ -13,7 +13,7 @@ const Header = () => {
 
           <Nav />
           <div>
-            <button className="btn">
+            <button className="btn hidden lg:flex">
               <RiWallet3Line className="text-xl" /> Connect Wallet
             </button>
           </div>
