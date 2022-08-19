@@ -50,15 +50,11 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="">
-            <Image
-              src={HomePic}
-              alt="loading"
-              className="rounded-lg relative"
-            />
+          <div className="relative">
+            <Image src={HomePic} alt="loading" className="rounded-lg" />
 
             {/* <Glassmorphism /> */}
-            <div className="absolute flex justify-between bottom-2 left-[20px] h-[200px] w-[330px] md:hidden p-4 lg:bottom-2 lg:left-[800px] lg:h-[200px] lg:w-[400px] bg-gray-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100">
+            <div className="absolute flex justify-between bottom-2 left-[20px] h-[200px] w-[330px] p-4 md:ml-20 lg:bottom-0 lg:left-[-100px] lg:h-[200px] lg:w-[400px] bg-gray-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100">
               <div className="">
                 <h2 className="mb-4 lg:font-semibold font-primary">
                   3D Abstract Hand
@@ -97,7 +93,6 @@ const Home = () => {
                 </button>
               </div>
             </div>
-            {/* ***** */}
           </div>
         </div>
       </div>
