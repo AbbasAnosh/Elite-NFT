@@ -1,9 +1,10 @@
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
-import img1 from "../assets/item-1.jpg";
-import img2 from "../assets/item-2.jpg";
-import img3 from "../assets/item-3.jpg";
-import img4 from "../assets/item-4.jpg";
+
+import img1 from "../assets/newNFT/unnamed (1).jpg";
+import img2 from "../assets/newNFT/unnamed (10).jpg";
+import img3 from "../assets/newNFT/unnamed (12).jpg";
+import img4 from "../assets/newNFT/unnamed (2).jpg";
 
 import { RiShoppingBagFill } from "react-icons/ri";
 import { TbArrowAutofitLeft } from "react-icons/tb";
@@ -77,7 +78,7 @@ const About = () => {
           {NFT.map((nft, i) => (
             <div
               key={i}
-              className="bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 p-6 rounded-lg"
+              className="bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 p-3 rounded-lg"
             >
               <Image src={nft.Image} alt="" className="rounded-lg" />
               <div className="flex justify-between py-2">
@@ -94,7 +95,7 @@ const About = () => {
                   width="40px"
                   height="10px"
                 />
-                <div>
+                <div className="">
                   <p className="text-[12px] text-slate-400">{nft.Ownership}</p>
                   <p className="text-[12px]">{nft.Name}</p>
                 </div>
