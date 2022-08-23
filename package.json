@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bigheads/core": "^0.3.3",
     "@fontsource/akaya-telivigala": "^4.5.7",
     "@fontsource/sora": "^4.5.9",
     "framer-motion": "^7.2.0",
