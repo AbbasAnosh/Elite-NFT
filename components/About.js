@@ -9,7 +9,10 @@ import img4 from "../assets/newNFT/unnamed (2).jpg";
 import { RiShoppingBagFill } from "react-icons/ri";
 import { TbArrowAutofitLeft } from "react-icons/tb";
 
-import imgprof from "../assets/avt2.png";
+import imgprof1 from "../assets/avt1.png";
+import imgprof2 from "../assets/avt2.png";
+import imgprof3 from "../assets/avt3.png";
+import imgprof4 from "../assets/avt4.png";
 import Image from "next/image";
 
 const NFT = [
@@ -17,7 +20,7 @@ const NFT = [
     Image: img1,
     title: '"Baby Industry #69"',
     Badge: "SUG",
-    ImageProf: imgprof,
+    ImageProf: imgprof1,
     Ownership: "Owned By",
     Name: "Guy Hawkins",
     Bid: "Current Bid",
@@ -29,7 +32,7 @@ const NFT = [
     Image: img2,
     title: '"Tiger Swag #342"',
     Badge: "BUS",
-    ImageProf: imgprof,
+    ImageProf: imgprof2,
     Ownership: "Owned By",
     Name: "Esther Howard",
     Bid: "Current Bid",
@@ -41,7 +44,7 @@ const NFT = [
     Image: img3,
     title: '"Amazing Cyborg #76"',
     Badge: "LIT",
-    ImageProf: imgprof,
+    ImageProf: imgprof3,
     Ownership: "Owned By",
     Name: "Robert Fox",
     Bid: "Current Bid",
@@ -53,7 +56,7 @@ const NFT = [
     Image: img4,
     title: '"Living Vase 01 by Lanz..."',
     Badge: "BSC",
-    ImageProf: imgprof,
+    ImageProf: imgprof4,
     Ownership: "Owned By",
     Name: "Jacob Jones",
     Bid: "Current Bid",
@@ -66,8 +69,8 @@ const About = () => {
   return (
     <section className="py-10">
       <div className="container mx-auto">
-        <div className="flex justify-between mb-20">
-          <h2 className="text-2xl font-secondary font-bold leading-3">
+        <div className="flex flex-col lg:justify-between mb-14 lg:mb-20 ">
+          <h2 className="text-2xl font-secondary font-bold leading-3 mb-7">
             Editors Pick For This Week
           </h2>
           <button className="flex items-center gap-2 text-xl leading-3">
@@ -88,16 +91,20 @@ const About = () => {
                 </p>
               </div>
               <div className="flex gap-4 justify-between mb-4">
-                <Image
-                  src={nft.ImageProf}
-                  alt=""
-                  className=""
-                  width="40px"
-                  height="10px"
-                />
-                <div className="">
-                  <p className="text-[12px] text-slate-400">{nft.Ownership}</p>
-                  <p className="text-[12px]">{nft.Name}</p>
+                <div className="flex gap-4">
+                  <Image
+                    src={nft.ImageProf}
+                    alt=""
+                    className=""
+                    width="40px"
+                    height="10px"
+                  />
+                  <div className="">
+                    <p className="text-[12px] text-slate-400">
+                      {nft.Ownership}
+                    </p>
+                    <p className="text-[12px]">{nft.Name}</p>
+                  </div>
                 </div>
                 <div>
                   <p className="text-[12px] text-slate-400">{nft.Bid}</p>
@@ -109,8 +116,9 @@ const About = () => {
                   <RiShoppingBagFill />
                   Place Bid
                 </button>
-                <button className="flex items-center gap-2 text-[13px] font-secondary text-slate-400">
-                  <TbArrowAutofitLeft /> View History
+                <button className="flex items-center gap-2 text-[13px] font-secondary ">
+                  <TbArrowAutofitLeft />
+                  <span className="text-slate-400">View History</span>
                 </button>
               </div>
             </div>

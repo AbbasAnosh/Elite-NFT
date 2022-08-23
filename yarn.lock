@@ -17,6 +17,11 @@
   dependencies:
     "regenerator-runtime" "^0.13.4"
 
+"@bigheads/core@^0.3.3":
+  "integrity" "sha512-lu+TbgFR3IRPQR539td47935SwujzT4OQJdqReksVPJ9f3Tn80kpemIsdmO4yYm9FWW7eAGV+a5bFKC4/1jpLA=="
+  "resolved" "https://registry.npmjs.org/@bigheads/core/-/core-0.3.3.tgz"
+  "version" "0.3.3"
+
 "@emotion/is-prop-valid@^0.8.2":
   "integrity" "sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA=="
   "resolved" "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz"
@@ -3284,7 +3289,7 @@
     "style-loader" "^1.0.0"
     "webpack" "^4.41.2"
 
-"react@*", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^17.x || ^18.x", "react@^18.0.0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@18.2.0":
+"react@*", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^17.x || ^18.x", "react@^18.0.0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
