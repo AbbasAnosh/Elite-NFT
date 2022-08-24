@@ -1,14 +1,17 @@
 import Image from "next/image";
 import React from "react";
 
-import img1 from "../assets/newNFT/unnamed (2).jpg";
+import img1 from "../assets/collection/13.png";
 import img2 from "../assets/newNFT/unnamed (3).jpg";
-import img3 from "../assets/newNFT/unnamed (5).jpg";
+import img3 from "../assets/collection/11.png";
 import img4 from "../assets/newNFT/unnamed (6).jpg";
+
+import img5 from "../assets/collection/5.png";
+import img6 from "../assets/collection/6.png";
 
 const Artwork = () => {
   return (
-    <section className="py-[10rem] lg:py-[15rem]">
+    <section className="pt-[10rem] lg:pt-[15rem]">
       <div className="container mx-auto">
         <div className="lg:flex lg:items-center lg:gap-6">
           <div className="text-center lg:text-start ">
@@ -63,14 +66,14 @@ const Artwork = () => {
                       <Image
                         alt="gallery"
                         className="block object-cover object-center w-full h-full rounded-lg"
-                        src={img2}
+                        src={img5}
                       />
                     </div>
                     <div className="w-1/2 p-1 md:p-2">
                       <Image
                         alt="gallery"
                         className="block object-cover object-center w-full h-full rounded-lg"
-                        src={img4}
+                        src={img6}
                       />
                     </div>
                   </div>
