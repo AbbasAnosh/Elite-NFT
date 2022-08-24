@@ -4,6 +4,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+
   theme: {
     fontFamily: {
       primary: "Akaya Telivigala, cursive",
@@ -27,6 +28,16 @@ module.exports = {
         white: "#fff",
         pink: "pink",
         transparent: "transparent",
+      },
+      keyframes: {
+        move: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        Secondmove: {
+          "100%": { transform: "translateX(100%)" },
+          "0%": { transform: "translateX(-100%)" },
+        },
       },
     },
   },
