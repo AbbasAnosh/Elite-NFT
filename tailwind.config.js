@@ -29,6 +29,7 @@ module.exports = {
         pink: "pink",
         transparent: "transparent",
       },
+
       keyframes: {
         move: {
           "0%": { transform: "translateX(100%)" },

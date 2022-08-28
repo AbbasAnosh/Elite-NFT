@@ -24,7 +24,9 @@ const Artwork = () => {
               consequatur provident accusantium officia excepturi.
             </p>
 
-            <button className="btn">Explore Now</button>
+            <div className="flex justify-center align-center mb-3 lg:flex-start lg:justify-start">
+              <button className="btn">Explore Now</button>
+            </div>
           </div>
 
           <div>

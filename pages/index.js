@@ -7,6 +7,9 @@ import Auctions from "../components/Auctions";
 import Artwork from "../components/Artwork";
 import Collection from "../components/Collection";
 import Artist from "../components/Artist";
+import PopularArtist from "../components/PopularArtist";
+import NewsLetter from "../components/NewsLetter";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -18,7 +21,10 @@ export default function Home() {
       <Auctions />
       <Artwork />
       <Collection />
-      <Artist />
+      {/* <Artist /> */}
+      <PopularArtist />
+      <NewsLetter />
+      <Footer />
     </div>
   );
 }
