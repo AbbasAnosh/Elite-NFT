@@ -1,7 +1,5 @@
 import React from "react";
 
-import Elite_NFT from "../assets/Elite-nft.jpg";
-
 const NewsLetter = () => {
   return (
     <section className="pt-[5rem] pb-[6rem]">

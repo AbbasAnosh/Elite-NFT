@@ -6,6 +6,7 @@ import Image from "next/image";
 import profImage from "../assets/avt2.png";
 import ethereum from "../assets/eth2.png";
 import { BsArrowRightShort } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 // import Glassmorphism from "../constants/Glassmorphism";
 
@@ -26,14 +27,20 @@ const Home = () => {
               currency
             </p>
             <div className="flex gap-3 min-h-[100px]">
-              <button className=" flex items-center font-secondary gap-2 h-10 px-4 bg-[#EB128A] rounded-lg">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                className=" flex items-center font-secondary gap-2 h-10 px-4 bg-[#EB128A] rounded-lg"
+              >
                 <IoIosRocket />
                 Explore
-              </button>
-              <button className=" flex items-center gap-2 h-10 px-4 border-2 border-x-[#5D4CEA] border-y-[#C951E6] rounded-lg ">
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                className=" flex items-center gap-2 h-10 px-4 border-2 border-x-[#5D4CEA] border-y-[#C951E6] rounded-lg "
+              >
                 <IoIosCreate />
                 Create
-              </button>
+              </motion.button>
             </div>
             <div className="flex order-1 gap-5 font-primary ">
               <div>
@@ -88,9 +95,12 @@ const Home = () => {
                     <p>Secs</p>
                   </div>
                 </div>
-                <button className="flex items-center gap-1 font-medium font-secondary h-10 px-4 lg:h-11 lg:px-6 bg-gradient-to-t from-[#5D4CEA] to-[#C951E6] rounded text-[15px] hover:bg-gradient-to-b hover:from-[#5D4CEA] hover:to-[#C951E6] outline-none justify-center cursor-pointer">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  className="flex items-center gap-1 font-medium font-secondary h-10 px-4 lg:h-11 lg:px-6 bg-gradient-to-t from-[#5D4CEA] to-[#C951E6] rounded text-[15px] hover:bg-gradient-to-b hover:from-[#5D4CEA] hover:to-[#C951E6] outline-none justify-center cursor-pointer"
+                >
                   Place Bid <BsArrowRightShort className="text-lg" />
-                </button>
+                </motion.button>
               </div>
             </div>
           </div>
