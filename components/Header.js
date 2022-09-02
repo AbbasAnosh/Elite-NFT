@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "./Nav";
 import { RiWallet3Line } from "react-icons/ri";
+import { motion } from "framer-motion";
 
 const Header = () => {
   return (
@@ -13,9 +14,13 @@ const Header = () => {
 
           <Nav />
           <div>
-            <button className="btn hidden lg:flex">
+            <motion.button
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 1.1 }}
+              className="btn hidden lg:flex"
+            >
               <RiWallet3Line className="text-xl" /> Connect Wallet
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>

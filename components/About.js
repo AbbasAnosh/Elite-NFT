@@ -15,6 +15,8 @@ import imgprof3 from "../assets/avt3.png";
 import imgprof4 from "../assets/avt4.png";
 import Image from "next/image";
 
+import { motion } from "framer-motion";
+
 const NFT = [
   {
     Image: img1,
@@ -83,7 +85,13 @@ const About = () => {
               key={i}
               className="bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 p-3 rounded-lg"
             >
-              <Image src={nft.Image} alt="" className="rounded-lg" />
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+              >
+                <Image src={nft.Image} alt="" className="rounded-lg" />
+              </motion.div>
               <div className="flex justify-between py-2">
                 <p className="text-sm">{nft.title}</p>
                 <p className="text-[9px] bg-[#5F55EA] rounded-full w-8 h-4 text-center">
