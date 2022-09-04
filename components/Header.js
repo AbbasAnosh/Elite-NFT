@@ -1,11 +1,15 @@
 import React from "react";
 import Nav from "./Nav";
-import { RiWallet3Line } from "react-icons/ri";
-import { motion } from "framer-motion";
+import { HiMenu } from "react-icons/hi";
 
-const Header = () => {
+const Header = ({ setNavMobile }) => {
   return (
-    <header className="py-9">
+    <header
+      className="py-6"
+      data-aos="fade-down"
+      data-aos-duration="2000"
+      data-aos-delay="900"
+    >
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           <div>
@@ -13,15 +17,11 @@ const Header = () => {
           </div>
 
           <Nav />
-          <div>
-            <motion.button
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 1.1 }}
-              className="btn hidden lg:flex"
-            >
-              <RiWallet3Line className="text-xl" /> Connect Wallet
-            </motion.button>
-          </div>
+
+          <HiMenu
+            onClick={() => setNavMobile(true)}
+            className="lg:hidden text-3xl text-white cursor-pointer"
+          />
         </div>
       </div>
     </header>

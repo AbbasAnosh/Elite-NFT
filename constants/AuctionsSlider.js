@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Autoplay } from "swiper";
+import { motion } from "framer-motion";
 
 import Image from "next/image";
 
@@ -168,14 +169,22 @@ const AuctionsSlider = () => {
                 </div>
               </div>
               <div className="flex justify-between">
-                <a className=" text-[13px] flex items-center gap-1 font-secondary border cursor-pointer h-[30px] px-4 rounded-lg">
+                <motion.a
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 1 }}
+                  className=" text-[13px] flex items-center gap-1 font-secondary border cursor-pointer h-[30px] px-4 rounded-lg"
+                >
                   <AiFillClockCircle />
                   {collection.Time}
-                </a>
+                </motion.a>
 
-                <a className="text-[13px] flex items-center gap-1 font-secondary cursor-pointer bg-gradient-to-r from-[#EF18A5] to-[#5D4CEA] h-[25px] px-4 rounded-lg">
+                <motion.a
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 1 }}
+                  className="text-[13px] flex items-center gap-1 font-secondary cursor-pointer bg-gradient-to-r from-[#EF18A5] to-[#5D4CEA] h-[25px] px-4 rounded-lg"
+                >
                   <RiVipCrownFill /> Place Bid
-                </a>
+                </motion.a>
               </div>
             </SwiperSlide>
           );

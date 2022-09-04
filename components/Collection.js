@@ -1,5 +1,8 @@
 import React from "react";
 import { AiFillHeart } from "react-icons/ai";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 import profIm1 from "../assets/images/image_3.png";
 import profIm2 from "../assets/images/image_5.png";
@@ -95,14 +98,26 @@ const CollectionNFT = [
 import { IoIosRocket } from "react-icons/io";
 import Image from "next/image";
 const Collection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
-    <section className="pt-[5rem]">
-      <div className="container mx-auto">
-        <div className="flex flex-col lg:justify-between pb-9">
-          <h2 className="text-[2rem] mb-2 lg:text-[3rem] font-semibold">
-            Popular Collections
-          </h2>
+    <section className="pt-[5rem]" ref={ref}>
+      <div
+        style={{
+          transform: isInView ? "none" : "translateX(-200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(.09,1.94,.54,-0.89) 0.5s",
+        }}
+        className="container mx-auto"
+      >
+        <div className="flex flex-col lg:flex-row lg:justify-between pb-9">
           <div>
+            <h2 className="text-[2rem] mb-2 lg:text-[3rem] font-semibold">
+              Popular Collections
+            </h2>
+          </div>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 1 }}>
             <button
               href=""
               className="font-medium font-secondary h-11 px-6 bg-gradient-to-r from-[#EF18A5] to-[#C951E6] rounded text-[15px] hover:bg-gradient-to-b hover:from-[#5D4CEA] hover:to-[#C951E6] outline-none flex items-center gap-2 justify-center cursor-pointer"
@@ -110,11 +125,11 @@ const Collection = () => {
               <IoIosRocket />
               Explore All
             </button>
-          </div>
+          </motion.div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {CollectionNFT.map((collection, index) => (
-            <div key={index}>
+            <motion.div key={index}>
               <div className="p-4 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100">
                 <div className="flex justify-between mb-3">
                   <div className="flex gap-3">
@@ -167,7 +182,7 @@ const Collection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

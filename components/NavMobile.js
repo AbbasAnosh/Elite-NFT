@@ -2,10 +2,16 @@ import React from "react";
 import { motion } from "framer-motion";
 import { RiWallet3Line } from "react-icons/ri";
 
-const Nav = () => {
+import { IoClose } from "react-icons/io5";
+
+const NavMobile = ({ setNavMobile }) => {
   return (
-    <nav className="flex">
-      <ul className="hidden lg:flex font-secondary items-center space-x-12 font-medium">
+    <nav className="lg:hidden bg-[#251f3f] w-full h-full">
+      <IoClose
+        onClick={() => setNavMobile(false)}
+        className="text-3xl absolute left-4 top-6 cursor-pointer"
+      />
+      <ul className="flex flex-col items-center justify-center space-y-8 h-full font-secondary">
         <li className="nav-link">
           <a href="#home">Home</a>
         </li>
@@ -25,7 +31,7 @@ const Nav = () => {
           <motion.button
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 1.1 }}
-            className="btn hidden lg:flex"
+            className="btn"
           >
             <RiWallet3Line className="text-xl" /> Connect Wallet
           </motion.button>
@@ -35,4 +41,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default NavMobile;

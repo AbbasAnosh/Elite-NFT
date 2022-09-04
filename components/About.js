@@ -14,7 +14,8 @@ import imgprof2 from "../assets/avt2.png";
 import imgprof3 from "../assets/avt3.png";
 import imgprof4 from "../assets/avt4.png";
 import Image from "next/image";
-
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 import { motion } from "framer-motion";
 
 const NFT = [
@@ -68,28 +69,40 @@ const NFT = [
   },
 ];
 const About = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
-    <section className="py-10">
-      <div className="container mx-auto">
-        <div className="flex flex-col lg:justify-between mb-14 lg:mb-20 ">
-          <h2 className="text-2xl font-secondary font-bold leading-3 mb-7">
-            Editors Pick For This Week
-          </h2>
-          <button className="flex items-center gap-2 text-xl leading-3">
-            See all artwork <BsArrowRight />
-          </button>
+    <section className="py-10" ref={ref}>
+      <div
+        style={{
+          transform: isInView ? "none" : "translateX(200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(.7,.1,.16,.7) 0.5s",
+        }}
+        className="container mx-auto"
+      >
+        <div className="flex flex-col lg:flex-row lg:justify-between mb-14 lg:mb-20 ">
+          <div>
+            <h2 className="text-2xl font-secondary font-bold leading-3 mb-7">
+              Editors Pick For This Week
+            </h2>
+          </div>
+          <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 1.1 }}>
+            <button className="flex items-center gap-2 text-xl leading-3">
+              See all artwork <BsArrowRight />
+            </button>
+          </motion.div>
         </div>
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-7">
           {NFT.map((nft, i) => (
-            <div
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              transition={{ ease: "easeOut", duration: 1 }}
               key={i}
               className="bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 p-3 rounded-lg"
             >
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-              >
+              <motion.div>
                 <Image src={nft.Image} alt="" className="rounded-lg" />
               </motion.div>
               <div className="flex justify-between py-2">
@@ -120,16 +133,24 @@ const About = () => {
                 </div>
               </div>
               <div className="flex justify-between">
-                <button className="flex items-center gap-1 text-[13px] font-secondary bg-gradient-to-r from-[#EF18A5] to-[#5D4CEA] h-[25px] px-2 rounded-3xl">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 1 }}
+                  className="flex items-center gap-1 text-[13px] font-secondary bg-gradient-to-r from-[#EF18A5] to-[#5D4CEA] h-[25px] px-2 rounded-3xl"
+                >
                   <RiShoppingBagFill />
                   Place Bid
-                </button>
-                <button className="flex items-center gap-2 text-[13px] font-secondary ">
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 1 }}
+                  className="flex items-center gap-2 text-[13px] font-secondary "
+                >
                   <TbArrowAutofitLeft />
                   <span className="text-slate-400">View History</span>
-                </button>
+                </motion.button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
