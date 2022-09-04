@@ -6,15 +6,30 @@ import Image from "next/image";
 import profImage from "../assets/avt2.png";
 import ethereum from "../assets/eth2.png";
 import { BsArrowRightShort } from "react-icons/bs";
-import { motion } from "framer-motion";
-
-// import Glassmorphism from "../constants/Glassmorphism";
+import { motion, useMotionValue } from "framer-motion";
+import { useTransform } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 const Home = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotatX = useTransform(y, [-100, 100], [20, -20]);
+  const rotatY = useTransform(x, [-100, 100], [20, -20]);
   return (
-    <section className="py-16">
+    <section className="py-16" ref={ref}>
       <div className="container mx-auto">
-        <div className="flex flex-col lg:flex-row lg:justify-between">
+        <div
+          style={{
+            transform: isInView ? "none" : "translateX(-200px)",
+            opacity: isInView ? 1 : 0,
+            transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+          }}
+          className="flex flex-col lg:flex-row lg:justify-between"
+        >
           <div className="mb-[50px]">
             <div className="min-h-[200px]">
               <h2 className="text-[#EF18A5] text-[3rem] font-primary">
@@ -61,7 +76,14 @@ const Home = () => {
             <Image src={HomePic} alt="loading" className="rounded-lg" />
 
             {/* <Glassmorphism /> */}
-            <div className="absolute flex justify-between bottom-2 left-[20px] h-[200px] w-[330px] p-4 md:ml-20 lg:bottom-0 lg:left-[-100px] lg:h-[200px] lg:w-[400px] bg-gray-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100">
+            <motion.div
+              style={{ x, y, rotatX, rotatY, z: 100 }}
+              drag
+              dragElastic={0.19}
+              dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+              whileTap={{ cursor: "grabbing" }}
+              className="absolute flex justify-between bottom-2 left-[20px] h-[200px] w-[330px] p-4 md:ml-20 lg:bottom-0 lg:left-[-100px] lg:h-[200px] lg:w-[400px] bg-gray-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100"
+            >
               <div className="">
                 <h2 className="mb-4 lg:font-semibold font-primary">
                   3D Abstract Hand
@@ -102,7 +124,7 @@ const Home = () => {
                   Place Bid <BsArrowRightShort className="text-lg" />
                 </motion.button>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

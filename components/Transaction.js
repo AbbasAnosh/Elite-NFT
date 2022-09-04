@@ -4,6 +4,9 @@ import icon1 from "../assets/icons/icons8-card-wallet-96.png";
 import icon2 from "../assets/icons/icons8-collectibles-96.png";
 import icon3 from "../assets/icons/icons8-exchange-bitcoin-96.png";
 import icon4 from "../assets/icons/icons8-remove-tag-96.png";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 const Data = [
   {
@@ -32,16 +35,32 @@ const Data = [
   },
 ];
 const Transaction = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
-    <section className="py-16">
-      <div className="container mx-auto">
+    <section className="py-16" ref={ref}>
+      <div
+        style={{
+          transform: isInView ? "none" : "translateX(-200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(.02,.98,.71,.31) 0.5s",
+        }}
+        className="container mx-auto"
+      >
         <h2 className="text-2xl font-secondary font-bold leading-3 mb-14">
           Create and sell your NFTs
         </h2>
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-10 items-center">
           {Data.map((data, i) => (
             <div key={i}>
-              <Image src={data.icon} alt="" />
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+              >
+                <Image src={data.icon} alt="" />
+              </motion.div>
               <h3 className="font-secondary text-xl py-4">{data.title}</h3>
               <p className="font-primary text-[15px] text-justify text-slate-300">
                 {data.paragraph}
