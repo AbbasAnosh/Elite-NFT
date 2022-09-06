@@ -169,14 +169,10 @@ const AuctionsSlider = () => {
                 </div>
               </div>
               <div className="flex justify-between">
-                <motion.a
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 1 }}
-                  className=" text-[13px] flex items-center gap-1 font-secondary border cursor-pointer h-[30px] px-4 rounded-lg"
-                >
+                <a className=" text-[13px] flex items-center gap-1 font-secondary border cursor-pointer h-[30px] px-4 rounded-lg">
                   <AiFillClockCircle />
                   {collection.Time}
-                </motion.a>
+                </a>
 
                 <motion.a
                   whileHover={{ scale: 1.1 }}
