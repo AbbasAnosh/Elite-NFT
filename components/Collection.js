@@ -150,7 +150,7 @@ const Collection = () => {
                   </div>
                   <div>
                     <div className="flex gap-1 items-center bg-slate-500 rounded-lg p-1 text-sm">
-                      <AiFillHeart />
+                      <AiFillHeart className="text-red-600" />
                       {collection.Bidg}
                     </div>
                   </div>
