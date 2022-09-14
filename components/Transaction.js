@@ -34,6 +34,14 @@ const Data = [
       "Choose between auctions, fixed-price listings, and declining-price listings. You choose how you want to sell your NFTs.",
   },
 ];
+
+const visible = { opacity: 1, y: 0, transition: { duration: 1 } };
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible,
+};
+
 const Transaction = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -51,7 +59,13 @@ const Transaction = () => {
         <h2 className="text-2xl font-secondary font-bold leading-3 mb-14">
           Create and sell your NFTs
         </h2>
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-10 items-center">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          exit={{ opacity: 0, transition: { duration: 1 } }}
+          variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
+          className="grid md:grid-cols-3 lg:grid-cols-4 gap-10 items-center"
+        >
           {Data.map((data, i) => (
             <div key={i}>
               <motion.div
@@ -61,13 +75,21 @@ const Transaction = () => {
               >
                 <Image src={data.icon} alt="" />
               </motion.div>
-              <h3 className="font-secondary text-xl py-4">{data.title}</h3>
-              <p className="font-primary text-[15px] text-justify text-slate-300">
+              <motion.h3
+                variants={itemVariants}
+                className="font-secondary text-xl py-4"
+              >
+                {data.title}
+              </motion.h3>
+              <motion.p
+                variants={itemVariants}
+                className="font-primary text-[15px] text-justify text-slate-300"
+              >
                 {data.paragraph}
-              </p>
+              </motion.p>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
