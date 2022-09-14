@@ -6,12 +6,20 @@ import Image from "next/image";
 import profImage from "../assets/avt2.png";
 import ethereum from "../assets/eth2.png";
 import { BsArrowRightShort } from "react-icons/bs";
-import { motion, useMotionValue } from "framer-motion";
+import { motion, useMotionValue, useAnimation } from "framer-motion";
 import { useTransform } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 
 const Home = () => {
+  const animation = useAnimation();
+
+  async function sequence() {
+    await animation.start({ rotate: -90 });
+    await animation.start({ scale: 1.5 });
+    await animation.start({ rotate: 0 });
+    animation.start({ scale: 1 });
+  }
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -82,6 +90,8 @@ const Home = () => {
               dragElastic={0.19}
               dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
               whileTap={{ cursor: "grabbing" }}
+              onTap={sequence}
+              animate={animation}
               className="absolute flex justify-between bottom-2 left-[20px] h-[200px] w-[330px] p-4 md:ml-20 lg:bottom-0 lg:left-[-100px] lg:h-[200px] lg:w-[400px] bg-gray-300 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 border border-gray-100"
             >
               <div className="">
