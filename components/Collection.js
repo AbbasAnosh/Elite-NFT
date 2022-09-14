@@ -2,7 +2,7 @@ import React from "react";
 import { AiFillHeart } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import { useInView } from "framer-motion";
+import { useInView, useTransform, useMotionValue } from "framer-motion";
 
 import profIm1 from "../assets/images/image_3.png";
 import profIm2 from "../assets/images/image_5.png";
@@ -101,6 +101,16 @@ const Collection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  const x = useMotionValue(200);
+  const y = useMotionValue(200);
+
+  const rotateX = useTransform(y, [0, 400], [45, -45]);
+  const rotateY = useTransform(x, [0, 400], [-45, 45]);
+
+  function handleMouse(event) {
+    x.set(event.pageX);
+    y.set(event.pageY);
+  }
   return (
     <section className="pt-[5rem]" ref={ref}>
       <div
